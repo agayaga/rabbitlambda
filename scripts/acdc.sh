@@ -5,13 +5,15 @@
 GiTHuB=https://github.com/agayaga/rabbitlambda
 
 GITDIR=$(mktemp -d)
+echo GITDIR=${GITDIR}
 pushd ${GITDIR}
+  echo "PwD=${PWD}"
   git clone -b rabbit-web-app ${GiTHuB}
-  cd rabbitlambda/bbit-web-v2/
+  echo "PwD=${PWD}"
+  cd rabbitlambda/rabbit-web-v2
   npm install
   ng build
 popd
-
 
 
 
