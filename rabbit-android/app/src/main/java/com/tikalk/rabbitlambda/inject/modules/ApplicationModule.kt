@@ -1,4 +1,4 @@
-package com.knews.android.di.modules
+package com.tikalk.rabbitlambda.inject.modules
 
 import dagger.Module
 

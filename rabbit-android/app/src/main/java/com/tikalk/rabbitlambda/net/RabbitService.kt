@@ -1,8 +1,10 @@
 package com.tikalk.rabbitlambda.net
 
+import com.tikalk.rabbitlambda.model.Answer
 import com.tikalk.rabbitlambda.model.AnswersResponse
-import com.tikalk.rabbitlambda.model.QuestionsResponse
+import com.tikalk.rabbitlambda.model.Questionnaire
 import io.reactivex.Observable
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -12,9 +14,9 @@ import retrofit2.http.POST
 interface RabbitService {
 
     @GET("db")
-    fun getQuestionnaire(): Observable<QuestionsResponse>
+    fun getQuestionnaire(): Observable<Questionnaire>
 
     @POST("submit")
-    fun setAnswers(): Observable<AnswersResponse>
+    fun setAnswers(@Body answers: List<Answer>): Observable<AnswersResponse>
 
 }

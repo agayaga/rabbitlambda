@@ -23,6 +23,7 @@ import android.widget.TextView
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
+import com.tikalk.rabbitlambda.inject.components.DaggerApplicationComponent
 
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -37,6 +38,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DaggerApplicationComponent.create().inject(this)
         setContentView(R.layout.activity_login)
         // Set up the login form.
         populateAutoComplete()
