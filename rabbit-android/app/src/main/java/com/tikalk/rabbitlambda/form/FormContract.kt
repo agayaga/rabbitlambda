@@ -10,6 +10,8 @@ interface FormContract {
     interface View : BaseView<Presenter> {
 
         fun showQuestionnaire(data: Questionnaire)
+
+        fun showQuestion(question: Question, position: Int, count: Int)
     }
 
     interface Presenter : BasePresenter {

@@ -8,8 +8,7 @@ import com.google.gson.annotations.SerializedName
 data class Question(@SerializedName("id") var id: Long,
                     @SerializedName("type") var type: QuestionType,
                     @SerializedName("q") var title: String,
-                    @SerializedName("answers") var options: List<String>,
-                    @SerializedName("correct_answer") var answer: Int)
+                    @SerializedName("answers") var options: List<String>)
 
 enum class QuestionType {
     @SerializedName("open")
