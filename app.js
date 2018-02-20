@@ -10,6 +10,9 @@ api.get('/db', function () {
   return db;
 });
 
+const uuidv1 = require('uuid/v1');
+const AWS = require('aws-sdk');
+var dynamoDb = new AWS.DynamoDB.DocumentClient();
 
 api.post('/submit', function (request) {
 
@@ -26,9 +29,23 @@ api.post('/submit', function (request) {
     }
   })
 
+  var params = {
+    TableName: 'rabbit',
+    Item: {
+        id: uuidv1(),
+        data: request.body
+    }
+  }
+  dynamoDb.put(params).promise();
+
   return {
     total_questions: db.length,
     correct_answers: correctAnswerCount
   };
-  
+
+});
+
+api.get('/stats', function () {
+  return dynamoDb.scan({ TableName: 'rabbit' }).promise()
+      .then(response => response.Items.length)
 });
