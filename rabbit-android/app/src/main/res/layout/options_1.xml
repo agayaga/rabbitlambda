@@ -6,32 +6,50 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline_h"
+        android:id="@+id/guideline_h1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.25"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_h2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75"/>
 
     <TextView
         android:id="@+id/title"
+        style="@style/Question.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_h"
-        tools:text="Question?"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/tools_q"/>
 
     <EditText
         android:id="@+id/option_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Question.Option"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_margin="8dp"
+        android:background="@color/option_1"
         android:hint="@string/option_hint"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_h"/>
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_h1"
+        tools:text="@string/tools_1"/>
 
     <Button
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/option_2"
         android:text="@android:string/ok"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

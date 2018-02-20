@@ -17,4 +17,12 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="Question.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Question.Option" parent="TextAppearance.AppCompat.Large.Inverse">
+        <item name="android:gravity">center</item>
+        <item name="android:padding">8dp</item>
+    </style>
 </resources>

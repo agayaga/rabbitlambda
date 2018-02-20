@@ -15,4 +15,10 @@
     </string>
     <string name="title_activity_main">Questionnaire</string>
     <string name="option_hint">Answer here</string>
+
+    <string name="tools_q">What is the meaning of life?</string>
+    <string name="tools_1">Please choose option #1</string>
+    <string name="tools_2">Please choose option #2</string>
+    <string name="tools_3">Please choose option #3</string>
+    <string name="tools_4">Please choose option #4</string>
 </resources>
