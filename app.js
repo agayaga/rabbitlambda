@@ -4,11 +4,18 @@ var ApiBuilder = require('claudia-api-builder'),
 
 module.exports = api;
 
-var db = require('./db.json')
+// var db = require('./db.json')
 
 api.get('/db', function () {
-  return db;
+  // return db;
+  return getDB();
 });
+
+var request = require('sync-request');
+function getDB(callback){
+  var db = request('GET','https://s3.us-east-2.amazonaws.com/rabbitlambdapuri/db.json').getBody('utf8');
+  return JSON.parse(db);
+}
 
 const uuidv1 = require('uuid/v1');
 const AWS = require('aws-sdk');
@@ -17,6 +24,8 @@ var dynamoDb = new AWS.DynamoDB.DocumentClient();
 api.post('/submit', function (request) {
 
   var correctAnswerCount = 0;
+
+  var db = getDB();
 
   _.each(request.body,function(answer){
     var question = _.find(db,function(item){
