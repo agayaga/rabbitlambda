@@ -29,8 +29,11 @@
         }
         .btn-panel{
             display: flex;
-            min-width: 400px;
+            min-width: 350px;
             justify-content: space-between;
+        }
+        [hidden]{
+            display: none;
         }
     }
     .summaryPannel{
