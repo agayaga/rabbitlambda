@@ -23,6 +23,9 @@ import android.widget.TextView
 
 import java.util.ArrayList
 import android.Manifest.permission.READ_CONTACTS
+import android.content.Intent
+import android.util.Patterns
+import com.tikalk.rabbitlambda.form.FormActivity
 import com.tikalk.rabbitlambda.inject.components.DaggerApplicationComponent
 
 import kotlinx.android.synthetic.main.activity_login.*
@@ -144,13 +147,11 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     }
 
     private fun isEmailValid(email: String): Boolean {
-        //TODO: Replace this with your own logic
-        return email.contains("@")
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        //TODO: Replace this with your own logic
-        return password.length > 4
+        return password.trim().length > 4
     }
 
     /**
@@ -243,31 +244,17 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
      */
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) : AsyncTask<Void, Void, Boolean>() {
 
-        override fun doInBackground(vararg params: Void): Boolean? {
+        override fun doInBackground(vararg params: Void): Boolean {
             // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000)
-            } catch (e: InterruptedException) {
-                return false
-            }
-
-            return DUMMY_CREDENTIALS
-                    .map { it.split(":") }
-                    .firstOrNull { it[0] == mEmail }
-                    ?.let {
-                        // Account exists, return true if the password matches.
-                        it[1] == mPassword
-                    }
-                    ?: true
+            return true
         }
 
-        override fun onPostExecute(success: Boolean?) {
+        override fun onPostExecute(success: Boolean) {
             mAuthTask = null
             showProgress(false)
 
-            if (success!!) {
+            if (success) {
+                startActivity(Intent(this@LoginActivity, FormActivity::class.java))
                 finish()
             } else {
                 password.error = getString(R.string.error_incorrect_password)
