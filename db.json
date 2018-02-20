@@ -1,13 +1,16 @@
 [
   {
+    "id": 1,
     "type": "open",
     "q": "What's your name"
   },
   {
+    "id": 2,
     "type": "american-single",
     "q": "21 * 2?",
     "answers": [
       "42","43","45","67"
-    ]
+    ],
+    "answer": 0
   }
 ]
