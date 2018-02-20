@@ -10,7 +10,7 @@ interface FormContract {
 
         fun showQuestion(question: Question, position: Int, count: Int)
 
-        fun showResults(correctAnswers: Int, totalQuestions: Int)
+        fun showScore(correctAnswers: Int, totalQuestions: Int)
     }
 
     interface Presenter : BasePresenter {

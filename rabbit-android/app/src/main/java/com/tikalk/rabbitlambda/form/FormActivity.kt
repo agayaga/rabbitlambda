@@ -61,7 +61,7 @@ class FormActivity : AppCompatActivity(), FormContract.View {
         }
     }
 
-    override fun showResults(correctAnswers: Int, totalQuestions: Int) {
+    override fun showScore(correctAnswers: Int, totalQuestions: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -89,7 +89,7 @@ class FormPresenter(private val repository: RabbitDataSource,
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe({ res ->
-                    showResults(res)
+                    showScore(res)
                     view.showProgress(false)
                 }, { e ->
                     Log.e(TAG, "submitAnswers error: $e")
@@ -99,7 +99,7 @@ class FormPresenter(private val repository: RabbitDataSource,
         disposables.add(disposable)
     }
 
-    private fun showResults(results: AnswersResponse) {
-        view.showResults(results.correctAnswers, results.totalQuestions)
+    private fun showScore(results: AnswersResponse) {
+        view.showScore(results.correctAnswers, results.totalQuestions)
     }
 }
