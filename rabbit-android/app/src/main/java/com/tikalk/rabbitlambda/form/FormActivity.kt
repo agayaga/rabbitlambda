@@ -1,6 +1,7 @@
 package com.tikalk.rabbitlambda.form
 
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
@@ -62,7 +63,17 @@ class FormActivity : AppCompatActivity(), FormContract.View {
     }
 
     override fun showScore(correctAnswers: Int, totalQuestions: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_score, null)
+        val correctView: TextView = view.findViewById(R.id.correct_value)
+        val countView: TextView = view.findViewById(R.id.count_value)
+
+        correctView.text = correctAnswers.toString()
+        countView.text = totalQuestions.toString()
+
+        AlertDialog.Builder(this)
+                .setCancelable(true)
+                .setView(view)
+                .show()
     }
 
     private fun populateQuestion1(question: Question, view: View) {

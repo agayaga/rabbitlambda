@@ -21,4 +21,6 @@
     <string name="tools_2">Please choose option #2</string>
     <string name="tools_3">Please choose option #3</string>
     <string name="tools_4">Please choose option #4</string>
+    <string name="correct_label">Number of correct answers:</string>
+    <string name="count_label">Number of questions:</string>
 </resources>
