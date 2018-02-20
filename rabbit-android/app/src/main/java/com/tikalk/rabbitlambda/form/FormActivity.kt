@@ -73,6 +73,7 @@ class FormActivity : AppCompatActivity(), FormContract.View {
         AlertDialog.Builder(this)
                 .setCancelable(true)
                 .setView(view)
+                .setOnDismissListener { finish() }
                 .show()
     }
 
