@@ -27,7 +27,7 @@ pushd ${GITDIR}
   echo "PwD=${PWD}"
   cd rabbitlambda/rabbit-web-v2
   npm install
-  ./node_modules/@angular/cli/bin/ng build
+  node_modules/@angular/cli/bin/ng build
 popd
 
 
