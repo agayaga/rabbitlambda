@@ -11,6 +11,11 @@ api.get('/db', function () {
   return getDB();
 });
 
+api.get('/db-android', function () {
+  // return db;
+  return {data: getDB()};
+});
+
 var request = require('sync-request');
 function getDB(callback){
   var db = request('GET','https://s3.us-east-2.amazonaws.com/rabbitlambdapuri/db.json').getBody('utf8');
@@ -20,6 +25,12 @@ function getDB(callback){
 const uuidv1 = require('uuid/v1');
 const AWS = require('aws-sdk');
 var dynamoDb = new AWS.DynamoDB.DocumentClient();
+
+api.post('/signin', function (request) {
+  return {
+    user_id: uuidv1()
+  }
+});
 
 api.post('/submit', function (request) {
 

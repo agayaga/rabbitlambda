@@ -1,13 +1,22 @@
 <div class="container">
-<div *ngIf="!summary" [class]="[possibleColors[colorPick],'qPannel'].join(' ')">
+    <div *ngIf="!user.token" class="login"> 
+        <div class="logo-panel"><img src="../assets/images/logo.png"/><br/><span>RabbitLambda</span></div>   
+        <div class="welcome-panel"><div>Hola, como estas today ?</div><div>Please login/signup to continue</div></div>
+        <div class="login-panel">
+            <div><input type="email" matInput  [(ngModel)]="user.email" placeholder="email"></div>
+            <div><input type="password" matInput  [(ngModel)]="user.pass" placeholder="Password"></div>
+            <div><button mat-raised-button color="primary" (click)="login()">Vamos!</button></div>
+        </div>
+    </div> 
+<div *ngIf="user.token && !summary" [class]="[possibleColors[colorPick],'qPannel'].join(' ')">
     <div class="content"  *ngFor="let question of questions; let i = index" [hidden]="step !== i">
-        <div class="q">
+        <div *ngIf="!isBusy" class="q">
                 {{ question.q }}
         </div>
-        <div *ngIf="question.type == 'open'">
+        <div *ngIf="question.type == 'open' && !isBusy">
             <input type="text" matInput [(ngModel)]="question.answervalue" placeholder="Enter...">
         </div>
-        <div *ngIf="question.type == 'single'">
+        <div *ngIf="question.type == 'single' && !isBusy">
                 <mat-radio-group [(ngModel)]="question.answervalue">
                     <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">
                         {{answer}}
@@ -15,15 +24,14 @@
                 </mat-radio-group>
         </div>
     </div>
-    <div class="btn-panel">
+    <div class="btn-panel" *ngIf="!isBusy">
         <button mat-raised-button color="basic" (click)="goBack()" [disabled]="step <= 0"><~ Back</button>
         <button mat-raised-button color="primary" (click)="goNext()" [hidden]="step >= questions?.length -1">Next ~></button>
         <button mat-raised-button color="accent" (click)="save()" [hidden]="step < questions?.length -1">Save</button>
     </div>
+    <div *ngIf="isBusy" class="loader"><img src="../assets/images/logo.png"/></div>
 </div>
-<div *ngIf="summary" class="summaryPannel hotpink">
+<div *ngIf="!isBusy && user.token && summary" class="summaryPannel hotpink">
     <div>{{summary}}</div>
 </div>
-
-
 </div>

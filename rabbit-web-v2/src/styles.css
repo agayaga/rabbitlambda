@@ -18,3 +18,9 @@ body {
 .cornflowerblue { background-color: cornflowerblue; }
 .blanchedalmond { background-color: blanchedalmond; }
 .lightslategrey { background-color: lightslategrey; }
+
+@keyframes fadeInOutAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
