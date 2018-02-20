@@ -19,12 +19,17 @@ class RabbitLocalDataSource(private val context: Context) : RabbitDataSource {
         val reader = InputStreamReader(raw)
         val type = object : TypeToken<List<Question>>() {}.type
         val list: List<Question> = Gson().fromJson(reader, type)
-        val q = Questionnaire(list)
+        val result = Questionnaire(list)
         reader.close()
-        return Observable.just(q)
+        return Observable.just(result)
     }
 
     override fun setAnswers(answers: List<Answer>): Observable<AnswersResponse> {
-        return Observable.empty()
+        val raw = context.resources.openRawResource(R.raw.submit)
+        val reader = InputStreamReader(raw)
+        val type = AnswersResponse::class.java
+        val result: AnswersResponse = Gson().fromJson(reader, type)
+        reader.close()
+        return Observable.just(result)
     }
 }
