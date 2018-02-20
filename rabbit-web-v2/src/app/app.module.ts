@@ -9,7 +9,9 @@ import { LoggerService } from './utils/logger/logger.service';
 
 import { AppComponent } from './app.component';
 
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, 
+         MatRadioModule,
+         MatInputModule } from '@angular/material';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { MatButtonModule } from '@angular/material';
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule
   ],
   providers: [DataService, LoggerService],
   bootstrap: [AppComponent]
