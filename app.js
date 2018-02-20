@@ -1,3 +1,4 @@
+var _ = require('underscore');
 var ApiBuilder = require('claudia-api-builder'),
   api = new ApiBuilder();
 
@@ -11,5 +12,23 @@ api.get('/db', function () {
 
 
 api.post('/submit', function (request) {
-  return request.body;
+
+  var correctAnswerCount = 0;
+
+  _.each(request.body,function(answer){
+    var question = _.find(db,function(item){
+      return item.id == answer.id;
+    });
+    if(question){
+      if(question.answers[question.correct_answer] == answer.answer){
+        correctAnswerCount ++;
+      }
+    }
+  })
+
+  return {
+    total_questions: db.length,
+    correct_answers: correctAnswerCount
+  };
+  
 });
