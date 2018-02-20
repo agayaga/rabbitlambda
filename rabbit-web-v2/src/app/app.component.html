@@ -1,0 +1,29 @@
+<div class="container">
+<div *ngIf="!summary" [class]="[possibleColors[colorPick],'qPannel'].join(' ')">
+    <div class="content"  *ngFor="let question of questions; let i = index" [hidden]="step !== i">
+        <div class="q">
+                {{ question.q }}
+        </div>
+        <div *ngIf="question.type == 'open'">
+            <input type="text" matInput [(ngModel)]="question.answervalue" placeholder="Enter...">
+        </div>
+        <div *ngIf="question.type == 'single'">
+                <mat-radio-group [(ngModel)]="question.answervalue">
+                    <mat-radio-button *ngFor="let answer of question.answers" [value]="answer">
+                        {{answer}}
+                    </mat-radio-button>
+                </mat-radio-group>
+        </div>
+    </div>
+    <div class="btn-panel">
+        <button mat-raised-button color="basic" (click)="goBack()" [disabled]="step <= 0"><~ Back</button>
+        <button mat-raised-button color="primary" (click)="goNext()" [hidden]="step >= questions?.length -1">Next ~></button>
+        <button mat-raised-button color="accent" (click)="save()" [hidden]="step < questions?.length">Save</button>
+    </div>
+</div>
+<div *ngIf="summary" class="summaryPannel hotpink">
+    <div>{{summary}}</div>
+</div>
+
+
+</div>
