@@ -10,6 +10,8 @@ import { LoggerService } from './utils/logger/logger.service';
 export class AppComponent implements OnInit {
   public questions: Array<{}>;
   public answers: Array<{}>;
+  public summary: String;
+  
   public step: number = 0;
   constructor (private dataService:DataService, private logger:LoggerService){}
   
@@ -33,6 +35,7 @@ export class AppComponent implements OnInit {
       return newArr;
     }, []);
     this.dataService.saveForm(savedObj).subscribe( res => {
+      this.summary = `From total of ${ res.total_questions } questions you nailed ${ res.correct_answers}`;
       this.logger.log(`GOt Respons: ${ JSON.stringify(res) }`);
     });
   }

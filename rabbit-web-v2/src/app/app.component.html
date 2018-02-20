@@ -1,18 +1,20 @@
+<div *ngIf="!summary" class="qPannel">
+    <div *ngFor="let question of questions; let i = index" [hidden]="step !== i">
+        {{ question.q }}
+        <div *ngIf="question.type == 'open'">
+            <input type="text" [(ngModel)]="question.answervalue" />
+        </div>
 
-<div *ngFor="let question of questions; let i = index" [hidden]="step !== i">
-    {{ question.q }}
-
-    <div *ngIf="question.type == 'open'">
-      <input type="text" [(ngModel)]="question.answervalue" />
-    </div>
-
-    <div *ngIf="question.type == 'single'">
-        <div *ngFor="let answer of question.answers">
-            <input type="radio" name="{{i}}" value="{{answer}}"
-            [(ngModel)]="question.answervalue">{{ answer }}
+        <div *ngIf="question.type == 'single'">
+            <div *ngFor="let answer of question.answers">
+                <input type="radio" name="{{i}}" value="{{answer}}" [(ngModel)]="question.answervalue">{{ answer }}
+            </div>
         </div>
     </div>
-</div> 
+</div>
+<div *ngIf="summary" class="summaryPannel">
+    {{summary}}
+</div>
 
 <button (click)="goNext()" [hidden]="step >= questions?.length -1">Next</button>
 <button (click)="save()" [hidden]="step != questions?.length -1">Save</button>
@@ -22,4 +24,3 @@
     <pre>{{ questions | json }}</pre>
     <pre>{{ answers | json }}</pre>
 -->
-
