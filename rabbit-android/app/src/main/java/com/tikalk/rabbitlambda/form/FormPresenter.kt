@@ -3,6 +3,7 @@ package com.tikalk.rabbitlambda.form
 import android.util.Log
 import com.tikalk.rabbitlambda.data.source.RabbitDataSource
 import com.tikalk.rabbitlambda.model.Answer
+import com.tikalk.rabbitlambda.model.AnswersResponse
 import com.tikalk.rabbitlambda.model.Question
 import com.tikalk.rabbitlambda.model.Questionnaire
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -24,7 +25,7 @@ class FormPresenter(private val repository: RabbitDataSource,
 
     private val disposables: CompositeDisposable = CompositeDisposable()
     private var data: Questionnaire? = null
-    private var itemIndex: Int = 0
+    private var itemIndex: Int = -1
     private val answers = ArrayList<Answer>()
 
     override fun subscribe() {
@@ -43,7 +44,7 @@ class FormPresenter(private val repository: RabbitDataSource,
                 .subscribeOn(Schedulers.io())
                 .subscribe({ res ->
                     data = res
-                    itemIndex = 0
+                    itemIndex = -1
                     showNextQuestion()
                     view.showProgress(false)
                 }, { e ->
@@ -71,6 +72,33 @@ class FormPresenter(private val repository: RabbitDataSource,
     }
 
     private fun showNextQuestion() {
-        showQuestion(itemIndex++)
+        val count = data!!.questions.size
+        if (itemIndex < count) {
+            itemIndex++
+            showQuestion(itemIndex)
+        } else {
+            submitAnswers()
+        }
+    }
+
+    private fun submitAnswers() {
+        view.showProgress(true)
+
+        val disposable = repository.setAnswers(answers)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({ res ->
+                    showResults(res)
+                    view.showProgress(false)
+                }, { e ->
+                    Log.e(TAG, "submitAnswers error: $e")
+                    view.showProgress(false)
+                })
+
+        disposables.add(disposable)
+    }
+
+    private fun showResults(results: AnswersResponse) {
+        view.showResults(results.correctAnswers, results.totalQuestions)
     }
 }

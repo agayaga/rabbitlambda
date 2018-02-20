@@ -7,7 +7,6 @@ import com.tikalk.rabbitlambda.R
 import com.tikalk.rabbitlambda.data.source.RabbitRepository
 import com.tikalk.rabbitlambda.inject.components.DaggerApplicationComponent
 import com.tikalk.rabbitlambda.model.Question
-import com.tikalk.rabbitlambda.model.Questionnaire
 import kotlinx.android.synthetic.main.activity_form.*
 import javax.inject.Inject
 
@@ -39,11 +38,11 @@ class FormActivity : AppCompatActivity(), FormContract.View {
         progress.visibility = if (show) View.VISIBLE else View.GONE
     }
 
-    override fun showQuestionnaire(data: Questionnaire) {
+    override fun showQuestion(question: Question, position: Int, count: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun showQuestion(question: Question, position: Int, count: Int) {
+    override fun showResults(correctAnswers: Int, totalQuestions: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
