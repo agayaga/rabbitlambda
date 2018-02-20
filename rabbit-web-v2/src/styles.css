@@ -1,5 +1,12 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
-    border: solid 1px red;
+    font-family: 'Muli';
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:100vh;
+}
+.mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
+    font-family: 'Muli';
 }

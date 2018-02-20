@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    .qPannel{
+        display: flex;
+        flex-flow: column;
+        width:100%;
+        text-align: center;
+        align-items: center;
+        padding-top: 30vh;
+        .content{
+            margin-bottom: 10vh;
+        }
+        .q {
+            font-size: 90px;
+
+        }
+        .btn-panel{
+            display: flex;
+            min-width: 400px;
+            justify-content: space-between;
+        }
+    }
+}
