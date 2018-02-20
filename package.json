@@ -2,6 +2,9 @@
   "name": "rabbitlambda",
   "version": "0.0.0",
   "dependencies": {
-    "claudia-api-builder": "^3.0.2"
+    "aws-sdk": "^2.198.0",
+    "claudia-api-builder": "^3.0.2",
+    "underscore": "^1.8.3",
+    "uuid": "^3.2.1"
   }
 }

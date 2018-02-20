@@ -1,0 +1,6 @@
+aws dynamodb create-table --table-name submissions \
+  --attribute-definitions AttributeName=submission_id,AttributeType=S \
+  --key-schema AttributeName=icecreamid,KeyType=HASH \
+  --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 \
+  --region us-east-1 \
+  --query TableDescription.TableArn --output text

@@ -9,19 +9,91 @@
   {
     "id": 2,
     "type": "single",
-    "q": "21 * 2?",
+    "q": "Name the largest freshwater lake in the world",
     "answers": [
-      "42","43","45","67"
+      "42","Lake Superior","Lake Kinneret","Lake Lack"
     ],
-    "correct_answer": [0],
+    "correct_answer": [1]
   },
   {
-    "id": 2,
-    "type": "multiple",
-    "q": "21 * 2?",
+    "id": 3,
+    "type": "single",
+    "q": "Do humming birds hum because they don't know the words?",
     "answers": [
-      "42","42","45","45"
+      "yes","no","IDK, leave me alone!!"
     ],
-    "correct_answer": [0, 1],
-  }
-]
+    "correct_answer": [0]
+  },
+  {
+    "id": 4,
+    "type": "single",
+    "q": "Do vampires get AIDS?",
+    "answers": [
+      "Yes","No"
+    ],
+    "correct_answer": [0]
+  },
+  {
+    "id": 5,
+    "type": "single",
+    "q": "Which is the only American state to begin with the letter 'P'?",
+    "answers": [
+      "Pennsylvania","Portugal","Puorto Rico","Baltimore"
+    ],
+    "correct_answer": [0]
+  },
+  {
+    "id": 6,
+    "type": "single",
+    "q": "Name the world's biggest island",
+    "answers": [
+      "Greenland","Redland","Blueland","Iceland"
+    ],
+    "correct_answer": [0]
+  },
+  {
+    "id": 7,
+    "type": "single",
+    "q": "What is the diameter of Earth?",
+    "answers": [
+      "4200","7980","8000","16000"
+    ],
+    "correct_answer": [2]
+  },
+  {
+    "id": 8,
+    "type": "single",
+    "q": "Which actress has won the most Oscars?",
+    "answers": [
+      "Kiano Reeves","Katharine Hepburn","Kevin Bacon","Noa Tishbi"
+    ],
+    "correct_answer": [1]
+  },
+  {
+    "id": 9,
+    "type": "single",
+    "q": "Who invented the rabies vaccination?",
+    "answers": [
+      "Albert Einstein","Louis Pasteur","Nikola Tesla","67"
+    ],
+    "correct_answer": [1]
+  },
+  {
+    "id": 10,
+    "type": "single",
+    "q": "who's your Daddy?",
+    "answers": [
+      "Frankie","Me","David Bowie","56"
+    ],
+    "correct_answer": [0]
+  },
+  {
+    "id": 11,
+    "type": "single",
+    "q": "In football, who was nicknamed 'The Divine Ponytail?",
+    "answers": [
+      "Enzo Mazarreti","Lior Messie","Roberto Baggio","Christiano Rollando"
+    ],
+    "correct_answer": [1]
+  },
+
