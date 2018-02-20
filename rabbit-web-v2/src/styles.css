@@ -1,6 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-<<<<<<< HEAD
 body {
     font-family: 'Muli';
     margin: 0;
@@ -11,7 +10,6 @@ body {
 .mat-button, .mat-fab, .mat-flat-button, .mat-icon-button, .mat-mini-fab, .mat-raised-button, .mat-stroked-button {
     font-family: 'Muli';
 }
-=======
 .darksalmon { background-color: darksalmon; }
 .hotpink { background-color: hotpink; }
 .lightskyblue { background-color: lightskyblue; }
@@ -20,4 +18,3 @@ body {
 .cornflowerblue { background-color: cornflowerblue; }
 .blanchedalmond { background-color: blanchedalmond; }
 .lightslategrey { background-color: lightslategrey; }
->>>>>>> 8f84d83c960ce4bc9f0f61961f4deef8d9ab1b20

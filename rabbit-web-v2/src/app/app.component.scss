@@ -13,13 +13,36 @@
             margin-bottom: 10vh;
         }
         .q {
-            font-size: 90px;
-
+            font-size: 80px;
+            margin-bottom: 40px;
+        }
+        input[type=text]{
+            background:none;
+            width: 300px;
+            height:40px;
+            font-size: 25px;
+            text-align: center;
+            border: solid #353232 1px;
+        }
+        .mat-radio-button{
+            margin-right: 20px;
         }
         .btn-panel{
             display: flex;
             min-width: 400px;
             justify-content: space-between;
+        }
+    }
+    .summaryPannel{
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        font-size: 65px;
+        text-align: center;
+        display: flex;
+        div{
+            max-width: 70%;
         }
     }
 }
