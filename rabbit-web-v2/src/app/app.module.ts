@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { MatButtonModule, 
          MatRadioModule,
          MatInputModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { MatButtonModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     MatButtonModule,
     MatRadioModule
   ],
