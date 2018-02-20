@@ -14,13 +14,13 @@
     </div>
 </div> 
 
-<button (click)="goNext()" [hidden]="step >= questions.length -1">Next</button>
-<button (click)="submit()" [hidden]="step != questions.length -1">Save</button>
+<button (click)="goNext()" [hidden]="step >= questions.length -1 | async">Next</button>
+<button (click)="save()" [hidden]="step != questions.length -1">Save</button>
 <button (click)="goBack()" [disabled]="step <= 0">Back</button>
-
+<pre>{{ questions | json }}</pre>
 <!--
 <pre>{{ step | json }}</pre>
-<pre>{{ questions | json }}</pre>
+
 <pre>{{ answers | json }}</pre>
 -->
 

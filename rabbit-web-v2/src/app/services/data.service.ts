@@ -20,7 +20,7 @@ export class DataService {
   ){}
 
   getQuestions(): Observable<any> {
-    this.loggerService.log(`fetching current Room`);
+    this.loggerService.log(`fetching questions`);
     return this.http.get(GET_QUESTIONS_URL)
         .map(response => response.json())
         .do((res)=>{
