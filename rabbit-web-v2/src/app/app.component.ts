@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './services/data.service'
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   public questions: Array<{}>;
+  public answers: Array<{}>;
   public step: number = 0;
   ngOnInit(): void {
     this.questions = [
@@ -55,5 +57,9 @@ export class AppComponent implements OnInit {
 
   goBack() {
     this.step--;
+  }
+
+  save() {
+    //ToDo: enter code
   }
 }

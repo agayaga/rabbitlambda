@@ -14,11 +14,13 @@
     </div>
 </div> 
 
-<button (click)="goNext()" [disabled]="step >= questions.length -1">Next</button>
+<button (click)="goNext()" [hidden]="step >= questions.length -1">Next</button>
+<button (click)="submit()" [hidden]="step != questions.length -1">Save</button>
 <button (click)="goBack()" [disabled]="step <= 0">Back</button>
 
+<!--
 <pre>{{ step | json }}</pre>
 <pre>{{ questions | json }}</pre>
 <pre>{{ answers | json }}</pre>
-
+-->
 
