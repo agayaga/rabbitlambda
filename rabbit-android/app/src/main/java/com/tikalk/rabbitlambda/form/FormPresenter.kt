@@ -68,14 +68,15 @@ class FormPresenter(private val repository: RabbitDataSource,
     }
 
     private fun showQuestion(index: Int) {
+        itemIndex = index
         view.showQuestion(data!!.questions[index], index, data!!.questions.size)
     }
 
     private fun showNextQuestion() {
         val count = data!!.questions.size
-        if (itemIndex < count) {
-            itemIndex++
-            showQuestion(itemIndex)
+        val nextIndex = itemIndex + 1
+        if (nextIndex < count) {
+            showQuestion(nextIndex)
         } else {
             submitAnswers()
         }
