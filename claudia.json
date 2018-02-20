@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "rabbitlambda-executor",
+    "name": "rabbitlambda",
+    "region": "us-east-2"
+  },
+  "api": {
+    "id": "heozkamkfc",
+    "module": "app"
+  }
+}

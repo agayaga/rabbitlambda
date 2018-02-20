@@ -1,0 +1,7 @@
+{
+  "name": "rabbitlambda",
+  "version": "0.0.0",
+  "dependencies": {
+    "claudia-api-builder": "^3.0.2"
+  }
+}
