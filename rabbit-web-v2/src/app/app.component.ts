@@ -8,6 +8,7 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent implements OnInit {
   public questions: Array<{}>;
+  public answers: Array<{}>;
   public step: number = 0;
   constructor (private dataService:DataService){}
   
@@ -24,5 +25,9 @@ export class AppComponent implements OnInit {
 
   goBack() {
     this.step--;
+  }
+
+  save() {
+    //ToDo: enter code
   }
 }
