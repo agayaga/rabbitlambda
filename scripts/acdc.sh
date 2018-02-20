@@ -22,8 +22,8 @@ GITDIR=$(mktemp -d)
 echo GITDIR=${GITDIR}
 pushd ${GITDIR}
   echo "PwD=${PWD}"
-  git clone ${GiTHuB}
-#  git clone -b rabbit-web-app ${GiTHuB}
+#  git clone ${GiTHuB}
+  git clone -b rabbit-web-app ${GiTHuB}
   echo "PwD=${PWD}"
   cd rabbitlambda/rabbit-web-v2
   npm install
