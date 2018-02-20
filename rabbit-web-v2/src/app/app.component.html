@@ -1,6 +1,6 @@
 <div class="container">
 <div *ngIf="!summary" class="qPannel">
-    <div class="content" *ngFor="let question of questions; let i = index" [hidden]="step !== i">
+    <div class="content" [class]="possibleColors[colorPick]" *ngFor="let question of questions; let i = index" [hidden]="step !== i">
         <div class="q">
                 {{ question.q }}
         </div>

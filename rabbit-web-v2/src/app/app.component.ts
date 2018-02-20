@@ -11,21 +11,36 @@ export class AppComponent implements OnInit {
   public questions: Array<{}>;
   public answers: Array<{}>;
   public summary: String;
-  
   public step: number = 0;
+  public colorPick: number;
+  public possibleColors = [
+    'darksalmon',
+    'hotpink',
+    'lightskyblue',
+    'goldenrod',
+    'peachpuff',
+    'mediumspringgreen',
+    'cornflowerblue',
+    'blanchedalmond',
+    'lightslategrey'
+  ];
+  
   constructor (private dataService:DataService, private logger:LoggerService){}
   
   ngOnInit(): void {
+    this.generate();
     this.dataService.getQuestions().subscribe( data => {
       this.questions =  data;
      });
   }
 
   goNext() {
+    this.generate();
     this.step++;
   }
 
   goBack() {
+    this.generate();
     this.step--;
   }
 
@@ -38,5 +53,9 @@ export class AppComponent implements OnInit {
       this.summary = `From total of ${ res.total_questions } questions you nailed ${ res.correct_answers}`;
       this.logger.log(`GOt Respons: ${ JSON.stringify(res) }`);
     });
+  }
+
+  generate() {
+    this.colorPick = Math.floor(Math.random() * this.possibleColors.length);
   }
 }
