@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       return newArr;
     }, []);
     this.dataService.saveForm(savedObj).subscribe( res => {
-      this.logger.log(`GOt Respons: ${ res }`);
+      this.logger.log(`GOt Respons: ${ JSON.stringify(res) }`);
     });
   }
 }
