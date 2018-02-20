@@ -1,0 +1,13 @@
+[
+  {
+    "type": "open",
+    "q": "What's your name"
+  },
+  {
+    "type": "american-single",
+    "q": "21 * 2?",
+    "answers": [
+      "42","43","45","67"
+    ]
+  }
+]
