@@ -10,9 +10,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(
-        ApplicationModule::class,
-        NetworkModule::class))
+@Component(modules = [(ApplicationModule::class), (NetworkModule::class)])
 interface ApplicationComponent {
     fun inject(app: Application)
     fun inject(source: RabbitRemoteDataSource)
