@@ -1,5 +1,10 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-body {
-    border: solid 1px red;
-}
+.darksalmon { background-color: darksalmon; }
+.hotpink { background-color: hotpink; }
+.lightskyblue { background-color: lightskyblue; }
+.peachpuff { background-color: peachpuff; }
+.mediumspringgreen { background-color: mediumspringgreen; }
+.cornflowerblue { background-color: cornflowerblue; }
+.blanchedalmond { background-color: blanchedalmond; }
+.lightslategrey { background-color: lightslategrey; }
