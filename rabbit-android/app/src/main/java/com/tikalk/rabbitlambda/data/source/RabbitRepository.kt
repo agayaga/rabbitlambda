@@ -11,10 +11,10 @@ class RabbitRepository(private val remoteDataSource: RabbitRemoteDataSource,
                        private val localDataSource: RabbitLocalDataSource) : RabbitDataSource {
 
     override fun getQuestionnaire(): Observable<Questionnaire> {
-        return localDataSource.getQuestionnaire()
+        return remoteDataSource.getQuestionnaire()
     }
 
     override fun setAnswers(answers: List<Answer>): Observable<AnswersResponse> {
-        return localDataSource.setAnswers(answers)
+        return remoteDataSource.setAnswers(answers)
     }
 }
