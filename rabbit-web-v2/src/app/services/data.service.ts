@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
-
+import { Http, RequestOptions, } from '@angular/http';
+import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
@@ -34,10 +34,9 @@ export class DataService {
 
   saveForm(formData:any): Observable<any> {
     let bodyString = JSON.stringify(formData);
-    let headers      = new Headers({ 'Content-Type': 'application/json' });
-    let options       = new RequestOptions({ headers: headers });
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
     this.loggerService.log(`form data #: ${JSON.stringify(formData) }`);
-    return this.http.post(SAVE_QUESTIONS_URL, bodyString, options )
+    return this.http.post(SAVE_QUESTIONS_URL, bodyString )
         .map(response => response.json())
         .do((response)=>{
               this.loggerService.log(`Got response #: ${ response }`);
