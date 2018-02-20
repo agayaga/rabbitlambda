@@ -7,7 +7,7 @@
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline_v"
-        android:layout_width="wrap_content"
+        android:layout_width="1dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5"/>
@@ -15,9 +15,19 @@
     <android.support.constraint.Guideline
         android:id="@+id/guideline_h"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Question?"/>
 
     <Button
         android:id="@+id/option_1"
@@ -26,10 +36,10 @@
         android:layout_margin="8dp"
         android:background="@color/option_1"
         android:textAppearance="?android:textAppearanceLargeInverse"
-        app:layout_constraintBottom_toTopOf="@id/guideline_h"
-        app:layout_constraintEnd_toStartOf="@id/guideline_v"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_v"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="1"/>
 
     <Button
@@ -39,10 +49,10 @@
         android:layout_margin="8dp"
         android:background="@color/option_2"
         android:textAppearance="?android:textAppearanceLargeInverse"
-        app:layout_constraintBottom_toTopOf="@id/guideline_h"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_h"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline_v"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline_v"
+        app:layout_constraintTop_toTopOf="@+id/option_1"
         tools:text="2"/>
 
     <Button
