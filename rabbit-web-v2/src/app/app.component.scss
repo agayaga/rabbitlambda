@@ -2,6 +2,53 @@
     display: flex;
     height: 100%;
     width: 100%;
+    input[type=text],
+    input[type=email],
+    input[type=password]
+     {
+        background:none;
+        min-width: 250px;
+        height:40px;
+        font-size: 25px;
+        text-align: center;
+        border: solid #353232 1px;
+    }
+    .login{
+        background-color: #35aeca;
+        width: 100%;
+        display:flex;
+        flex-flow: column;
+        align-items: center;
+        padding-top: 20px;
+        text-align: center;
+        .logo-panel{
+            margin-bottom: 30px;
+            img{
+                width:50%;
+                margin-bottom: 5px;
+            }
+        }
+        .welcome-panel{
+            font-size: 55px;
+            margin-bottom: 30px;            
+            div:nth-child(2){
+                font-size: 50%;
+                padding-top: 15px;
+            }
+        }
+        .login-panel{
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 20px;
+            input{
+                margin-bottom: 10px;
+                font-size: 20px;
+            }
+            button{
+                margin-top: 10px;
+            }
+        }
+    }
     .qPannel{
         display: flex;
         flex-flow: column;
@@ -34,6 +81,17 @@
         }
         [hidden]{
             display: none;
+        }
+        .loader{
+            position: absolute;
+            width: 15%;
+            text-align: center;
+            margin-top: 40vh;
+            top: 0;
+            img {
+                width: 30%;
+                animation: fadeInOutAnimation 1.5s infinite;
+            }
         }
     }
     .summaryPannel{
